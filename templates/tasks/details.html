@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    <div class="card mb-3" style="align-items: center">
+        <div class="card-body">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            {{ task.choices }}
+        </div>
+    </div>
+{% endblock %}
+{% block initial_section %}
+    {% comment %}{% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

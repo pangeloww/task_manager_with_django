@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-1">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="h1 fw-bold">Кои сме ние, и какво правим?</h1>
+                <p class="lead text-muted"></p>
+                <p>
+                    TaskM предоставя информация за задачния мениджър и целите на проекта. TaskM е създаден с цел да
+                    помогне на потребителите да организират и управляват своите задачи по-ефективно и систематично.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-1">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="h1 fw-bold">Защо да изберете нас?</h1>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Ефективно управление на задачите!
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                TaskM предоставя интуитивен и мощен набор от инструменти за управление на задачите на
+                                клиентите. От създаването и организирането на задачи до назначаването на отговорни и
+                                следенето на напредъка, TaskM осигурява едно централизирано място, където клиентите
+                                могат да управляват своите задачи ефективно. Също така, функциите за приоритизиране,
+                                филтриране и графично представяне на данните помагат на клиентите да се съсредоточат
+                                върху най-важните и критични задачи.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Колаборативна работа!
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                TaskM е предназначен да подпомага колаборативната работа и комуникацията между клиентите
+                                и техните екипи. С функционалности като коментари, споделяне на файлове и съобщения на
+                                живо, клиентите могат да се свързват директно с екипа си, да обменят идеи, да споделят
+                                ресурси и да работят заедно в реално време. Това подобрява ефективността на работата и
+                                ускорява процеса на достигане до резултати.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Персонализирани функционалности и гъвкавост
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                TaskM предлага гъвкавост в настройката на работния процес, което позволява на клиентите
+                                да адаптират системата към своите нужди. От избора на цветова схема и лого до
+                                настройката на различни типове задачи и статуси, клиентите могат да персонализират TaskM
+                                според своите предпочитания. Това им позволява да работят по начин, който най-добре
+                                отговаря на техните специфични изисквания и работни процеси.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" style="display: flex; align-items: center; justify-content: center;">
+        <h1 style="font-size: 30px;">Запиши се за нашата <a href="{% url 'gather' %}">бюлетина</a>, където ще получавате най-новите новини за нас</h1>
+    </div>
+{% endblock %}
+{% block initial_section %}
+    {% comment %}{% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

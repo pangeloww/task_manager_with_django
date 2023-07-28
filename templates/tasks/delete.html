@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    <form class="row g-3 needs-validation text-center" novalidate method="post" action="{% url 'delete task' pk=task.pk %}">
+        <h1 style="padding-top: 30px">Сигурни ли сте, че искате да изтриете вашата задача?</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" role="button" class="btn btn-danger btn-block py-2 mb-4 mt-5 fw-bold"
+                style="width: 100px; margin-left: 45%">Изтрий
+        </button>
+    </form>
+{% endblock %}
+{% block initial_section %}
+    {% comment %}{% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

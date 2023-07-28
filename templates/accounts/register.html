@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    <form class="row g-3 needs-validation text-center" novalidate method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    <h1 style="padding-top: 15px">Регистрация</h1>
+        <div class="col-md-6 offset-md-3">
+            <label for="validationCustom01" class="form-label">Име</label>
+            {{ form.first_name }}
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <label for="validationCustom02" class="form-label">Фамилия</label>
+            {{ form.last_name }}
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <label for="validationCustom03" class="form-label">Имейл</label>
+            {{ form.email }}
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <label for="validationCustomPassword" class="form-label">Парола</label>
+            {{ form.password }}
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <label for="validationCustomPassword" class="form-label">Повтори парола</label>
+            {{ form.repeat_password }}
+        </div>
+        <div class="col-md-6 offset-md-3">
+            <p>Вече имаш профил? Можеш да <a href={% url 'login' %}>влезнеш от тук!</a></p>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}
+{% block initial_section %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

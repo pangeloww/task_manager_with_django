@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>TaskM</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">TaskM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about us' %}">За нас</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'all tasks' %}">Всички задачи</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'create task' %}">Създай задача</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'edit profile' request.user.pk %}">Редактирай профил</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Излез от профил</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Вход</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% if user.is_authenticated %}
+    {% block logged_user %}
+        <section class="py-5 text-center container">
+            <div class="row py-lg-1">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="h1 fw-bold">Добре дошли в своя профил {{ user.first_name }}</h1>
+                    <p class="lead text-muted"></p>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+{% else %}
+    {% block initial_section %}
+        <section class="py-5 text-center container">
+            <div class="row py-lg-1">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="h1 fw-bold">Нямаш профил? Можеш да си направиш бързо тук!</h1>
+                    <p class="lead text-muted"></p>
+                    <p>
+                        <a href="{% url 'register' %}" class="btn btn-primary my-2">Създай профил</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+{% endif %}
+
+{% block main_content %}
+
+{% endblock %}
+
+<footer class="container py-5 footer">
+    <hr>
+    <div class="row pt-4">
+        <div class="col-12 col-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-asterisk"
+                 viewBox="0 0 16 16">
+                <path d=""></path>
+            </svg>
+            <small class="d-block mb-3 text-muted">© 2023-2024 TaskM. All rights reserved.</small>
+        </div>
+        <div class="col-6 col-md fs15">
+            <h5>About</h5>
+            <ul class="list-unstyled">
+                <li><a class="link-secondary text-decoration-none" href="#">About TaskM</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Our Team</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Contact Us</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md fs15">
+            <h5>Features</h5>
+            <ul class="list-unstyled">
+                <li><a class="link-secondary text-decoration-none" href="#">Task Management</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Deadline Tracking</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Collaboration Tools</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Reminders and Notifications</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled">
+                <li><a class="link-secondary text-decoration-none" href="#">Help Center</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">FAQs</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Blog</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">User Guides</a></li>
+                <li><a class="link-secondary text-decoration-none" href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

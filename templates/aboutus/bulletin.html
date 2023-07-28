@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+
+    <div class="container">
+        <div class="form-container" style="display: flex; justify-content: center; padding-top: 30px">
+            <div class="form-floating mb-3">
+                <h1 style="font-size: 30px;">Mожеш да се запишеш от тук:</h1>
+                <div style="display: flex; justify-content: center;">
+                    <form action="{% url 'gather' %}" method="post">
+                        {% csrf_token %}
+                        {{ form.email }}
+                        <div style="display: flex; justify-content: center; padding-top: 10px">
+                            <br>
+                            <button class="btn btn-primary" type="submit">Запиши се</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block initial_section %}
+    {% comment %}{% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

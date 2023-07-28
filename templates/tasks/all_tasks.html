@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    {% if all_tasks %}
+        <div class="card-container" style="padding-top: 50px; display: flex; justify-content: center">
+            {% for task in all_tasks %}
+                <div class="card" style="display: inline-block; width: 20rem; margin-left: 50px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ task.title }}</h5>
+                        <p class="card-text"> {{ task.description }}</p>
+                        <p class="card-text"> {{ task.choices }}</p>
+                        <a href="{% url 'task details' pk=task.pk %}" class="card-link">Детайли</a>
+                        <a href="{% url 'edit task' pk=task.pk %}" class="card-link">Редактиране</a>
+                        <a href="{% url 'delete task' pk=task.pk %}" class="card-link" style="color: red">Изтриване</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div style="display: flex; justify-content: center; padding-top: 30px">
+            <h1>Все още нямате задачи. Можете да направите от <a href="{% url 'create task' %}"> тук</a></h1>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

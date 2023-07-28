@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    <form class="row g-3 needs-validation text-center" novalidate method="post" action="{% url 'edit profile' pk=request.user.pk %}">
+    {% csrf_token %}
+    <h1 style="padding-top: 15px">Редактиране на профил</h1>
+        {{ form.as_p }}
+        <div class="col-md-6 offset-md-3">
+            <button class="btn btn-primary" type="submit">Запазване на промените</button>
+        </div>
+    </form>
+{% endblock %}
+{% block initial_section %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>

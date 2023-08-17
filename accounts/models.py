@@ -5,7 +5,7 @@ from django.core.validators import MinLengthValidator
 from django.db import models
 from django.utils import timezone
 from django.utils.crypto import get_random_string
-
+from .validators import validate_unique_email, validate_name
 
 # Create your models here.
 class AppUserManager(BaseUserManager):
@@ -45,14 +45,17 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = AppUserManager()
     first_name = models.CharField(
         max_length=30,
+        validators=[validate_name]
     )
     last_name = models.CharField(
         max_length=30,
+        validators=[validate_name]
     )
     email = models.EmailField(
         unique=True,
         null=False,
         blank=False,
+        validators=[validate_unique_email]
     )
     is_staff = models.BooleanField(
         default=False,

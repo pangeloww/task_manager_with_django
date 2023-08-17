@@ -40,7 +40,8 @@ def edit_profile(request, pk):
         form = EditAccountForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('edit profile', pk=user.pk)
+            return redirect('edit profile', pk=request.user.pk)
+
     else:
         form = EditAccountForm(instance=user)
 

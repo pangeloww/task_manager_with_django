@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block main_content %}
+    <h1>404 Страница не е намерена</h1>
+    <p>Страницата която търсиш не съществува.</p>
+    <p>Върнете се на главната страница</p>
+    <ul>
+        <li><a href="{% url 'home' %}">Home Page</a></li>
+    </ul>
+{% endblock %}
+{% block initial_section %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+{% block logged_user %}
+    {% comment %} {% endcomment %}
+{% endblock %}
+</body>
+</html>
